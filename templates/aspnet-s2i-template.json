@@ -14,7 +14,7 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "${APPLICATION_NAME}",
+                "name": "${IMAGE_STREAM_NAME}",
                 "labels": {
                     "app": "${APPLICATION_NAME}"
                 }
@@ -24,7 +24,7 @@
             "kind": "ImageStream",
             "apiVersion": "v1",
             "metadata": {
-                "name": "s2i-aspnet"
+		"name": "${ASP_UPSTREAM_IMAGE}"
             },
             "spec": {
                 "dockerImageRepository": "${ASP_UPSTREAM_IMAGE}"
@@ -106,7 +106,8 @@
                     "sourceStrategy": {
                         "from": {
                             "kind": "ImageStreamTag",
-                            "name": "s2i-aspnet:${ASP_UPSTREAM_IMAGE_TAG}"
+			    "name": "${IMAGE_STREAM_NAME}:${ASP_UPSTREAM_IMAGE_TAG}"
+
                         }
                     }
                 },
@@ -267,6 +268,12 @@
             "value": "app"
         },
         {
+		"name": "IMAGE_STREAM_NAME",
+  		"description": "ImageStream bame to use.",
+ 		"displayName": "ImageStream name",
+ 		"value": "s2i-aspnet"
+	 },
+	 {
            "name": "APPLICATION_HOSTNAME",
            "description": "The exposed hostname that will route to the Node.js service, if left blank a value will be defaulted.",
            "displayName": "Application hostname"
