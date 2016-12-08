@@ -253,7 +253,7 @@
             "description": "The URL of the repository with your application source code.",
             "displayName": "Git URI",
             "required": true,
-            "value": "https://github.com/openshift-s2i/s2i-aspnet-example.git"
+            "value": "https://github.com/cvantuin/s2i-aspnet-example.git"
         },
         {
             "name": "GIT_REF",
@@ -281,7 +281,7 @@
         {
             "name": "ASP_UPSTREAM_IMAGE",
             "description": "Base OpenShift ASP S2I Image",
-            "value": "registry.access.redhat.com/dotnet/dotnetcore-10-rhel7",
+            "value": "registry.access.redhat.com/dotnet/dotnetcore-11-rhel7",
             "displayName": "Upstream S2I Image"
         },
         {
